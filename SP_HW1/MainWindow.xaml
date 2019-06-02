@@ -1,0 +1,61 @@
+﻿<Window x:Name="Диспечер_задач" x:Class="SP_HW1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:SP_HW1"
+        mc:Ignorable="d"
+        Title="Диспечер_задач" Height="535" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="460"/>
+            <RowDefinition Height="0"/>
+        </Grid.RowDefinitions>
+        <TabControl Name="MyTab" Margin="0,0,0,2" Grid.Column="0">
+            <TabItem Name="Tab1" Header="Процессы">
+                <DataGrid Background="#FFE5E5E5" Height="408" VerticalAlignment="Top" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Процессы" Width="200" />
+                        <DataGridHyperlinkColumn Header="Состояние" Width="80" />
+                        <DataGridTextColumn Header="ЦП" Width="50" />
+                        <DataGridTextColumn Header="Память" Width="70" />
+                        <DataGridTextColumn Header="Диск" Width="70" />
+                        <DataGridTextColumn Header="Сеть" Width="70" />
+                        <DataGridTextColumn Header="GPU" Width="70" />
+                        <DataGridTextColumn Header="Ядро графического процессора" Width="250" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem x:Name="Tab2" Header="Производительность" Margin="0,-1,-4,-1">
+                <Grid Background="#FFE5E5E5" Margin="0,0,-671,-280"/>
+            </TabItem>
+            <TabItem x:Name="Tab3" Header="Журнал приложений" Margin="0,-1,-4,-1">
+                <Grid Background="#FFE5E5E5" Margin="0,0,-671,-280"/>
+            </TabItem>
+            <TabItem x:Name="Tab4" Header="Автозагрузка" Margin="0,-1,-4,-1">
+                <Grid Background="#FFE5E5E5" Margin="0,0,-671,-280"/>
+            </TabItem>
+            <TabItem x:Name="Tab5" Header="Пользователи" Margin="0,-1,-4,-1">
+                <Grid Background="#FFE5E5E5" Margin="0,0,-671,-280"/>
+            </TabItem>
+            <TabItem x:Name="ProcessesTab" Header="Подробности" Margin="0,-1,-4,-1">
+                <DataGrid x:Name="MyDGrid" AutoGenerateColumns="False" Background="#FFE5E5E5" Height="408" VerticalAlignment="Top" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Имя" Binding="{Binding Path=Name}" Width="150" />
+                        <DataGridHyperlinkColumn Header="ИД процесса" Binding="{Binding Path=Id}" Width="90" />
+                        <DataGridTextColumn Header="Состояние" Binding="{Binding Path=Status}" Width="90" />
+                        <DataGridTextColumn Header="Имя пользователя" Binding="{Binding Path=UserName}" Width="90" />
+                        <DataGridTextColumn Header="ЦП" Binding="{Binding Path=CPU}" Width="70" />
+                        <DataGridTextColumn Header="Память (активный частный рабочий набор)" Binding="{Binding Path=Memory}" Width="100" />
+                        <DataGridTextColumn Header="Виртуализация" Binding="{Binding Path=Virtualization}" Width="80" />                        
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem x:Name="Tab7" Header="Службы" Margin="0,-1,-4,-1">
+                <Grid Background="#FFE5E5E5" Margin="0,0,-671,-280"/>
+            </TabItem>
+        </TabControl>
+        <Button x:Name="MyButton" Content="Снять задачу" HorizontalAlignment="Left" Height="22" Margin="629,11,0,-32" Grid.Row="1" VerticalAlignment="Top" Width="153" Click="MyButton_Click"/>
+    </Grid>
+</Window>
